@@ -92,4 +92,8 @@ infrastructure/
 > |------|----------|------|
 > | 2026-05-22 | 初始文档：基于 project-design-init.md §3-§7 规划 | AI Agent |
 > | 2026-05-22 | lightrag.py: LLM 改用 openai_complete_if_cache；embedding 改用 openai_embed.func + partial；新增 PG 环境变量设置；新增 async initialize_storages | AI Agent |
-> | 2026-05-22 | email.py → lightrag.py 和 pipeline.py 同步，日志用 rag_agent logger | AI Agent |
+> | 2026-05-22 | lightrag.py: 新增 addon_params language 配置支持中文实体提取 | AI Agent |
+> | 2026-05-22 | lightrag.py: monkey-patch GPTKeywordExtractionFormat 替换为 json_object（DeepSeek 兼容）；_logging_complete 调试日志 | AI Agent |
+> | 2026-05-22 | llm.py: ChatOpenAI base_url 增加 /v1 路径；max_tokens 4096→8192 | AI Agent |
+> | 2026-05-22 | config.py: embedding_base_url 增加 /v1；新增 lightrag_language 配置项 | AI Agent |
+> | 2026-05-22 | pipeline.py + documents.py: upload_file 参数 file_path→source_path 修正 | AI Agent |

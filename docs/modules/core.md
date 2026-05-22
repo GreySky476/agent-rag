@@ -114,3 +114,10 @@ core/
 > | 2026-05-22 | 新增 tools/schema_tool.py: 查询 information_schema 返回表结构，Agent 决策前必须先查 schema | AI Agent |
 > | 2026-05-22 | orchestrator.py: 加入 schema_query 工具分发；_record_trace 增加事务回滚重试；新增 run_agent_stream SSE 流式接口 | AI Agent |
 > | 2026-05-22 | pipeline.py: 增加中文日志；修复 session.get 主键查询 bug | AI Agent |
+> | 2026-05-22 | schema_tool.py: 改为两级查询 — 无参返回表名列表，有参 table=X 返回列定义，大幅减少 token 占用 | AI Agent |
+> | 2026-05-22 | engine.py: DECIDE_SYSTEM_PROMPT 重写为工作流导向，schema 查询从全局强制降为 SQL 工具前置条件 | AI Agent |
+> | 2026-05-22 | engine.py: answer 工具 tool_args 参数名从 reasoning 改为 answer，解决 JSON 重 key 覆盖导致的答案丢失 | AI Agent |
+> | 2026-05-22 | orchestrator.py: known_data 用复合 key (schema_query.tables / schema_query.{table}) 防止覆盖 | AI Agent |
+> | 2026-05-22 | orchestrator.py: ANSWER 分支从 tool_args.answer/reasoning 取完整答案，解决短 reasoning 覆盖完整答案 | AI Agent |
+> | 2026-05-22 | graph_service.py: 串行 → 并发 asyncio.gather（Semaphore 限制），加速 LightRAG 批量插入 | AI Agent |
+> | 2026-05-22 | pipeline.py: 新增 bg_process_document 异步后台处理；PDF/CSV 文本提取 | AI Agent |

@@ -4,23 +4,29 @@
 
 ---
 
-## 当前 Epic：项目初始化与基础设施搭建
+## 当前 Epic：Agent 核心流程优化
 
 ### 目标
-根据 `docs/project-design-init.md` 的架构设计，完成项目骨架搭建，使系统具备最基本的运行能力。
+优化 chunk 策略、LLM 答案质量、决策引擎效率，提升整体 RAG 查询体验。
 
 ### Story 列表
 
 | # | Story | 状态 | 依赖 |
 |---|-------|------|------|
-| 1 | 创建 pyproject.toml 与项目依赖声明 | ✅ 完成 | — |
-| 2 | 实现 `config.py`（pydantic-settings） | ✅ 完成 | #1 |
-| 3 | 实现 `infrastructure/db.py`（SQLAlchemy async engine） | ✅ 完成 | #2 |
-| 4 | 实现 `domain/models.py`（4 个 ORM 模型） | ✅ 完成 | #3 |
-| 5 | 实现 `domain/schemas.py` + `enums.py` | ✅ 完成 | — |
-| 6 | 实现 `api/deps.py` + FastAPI 应用骨架 | ✅ 完成 | #2, #3 |
-| 7 | 搭建测试框架（pytest + conftest） | ✅ 完成 | #1 |
-| 8 | 编写 docker-compose.yml（PG+AGE+Redis+MinIO） | ✅ 完成 | — |
+| 1 | chunk_size 6000→2000 + 并发 worker 4→6 | ⏳ 待实施 | — |
+| 2 | 答案 prompt 优化（详实、结构化回答） | ⏳ 待实施 | — |
+| 3 | DECIDE_SYSTEM_PROMPT 移除简洁导向 | ⏳ 待实施 | — |
+| 4 | 答案评分机制研究与原型 | 📋 规划中 | #2 |
+
+---
+
+### 已完成史诗
+
+| Epic | 完成日期 |
+|------|----------|
+| 项目初始化与基础设施搭建 | 2026-05-22 |
+| 前端 Phase 1-3：完整 React 应用 | 2026-05-22 |
+| 后端 Phase 1：SSE 流式 + API 扩展 + 异步上传 | 2026-05-22 |
 
 ---
 

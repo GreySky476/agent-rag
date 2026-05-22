@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@theme {
+  --color-sidebar: #1a1a2e;
+  --color-sidebar-hover: #16213e;
+  --color-bubble-user: #2563eb;
+  --color-bubble-ai: #1e293b;
+  --color-tool-card: #0f172a;
+  --color-border: #334155;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #475569 transparent;
+}
+
+body {
+  @apply bg-gray-950 text-gray-100;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+}

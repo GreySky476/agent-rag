@@ -1,0 +1,15 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "instructions": ["AGENTS.md"],
+  "provider": {
+    "custom-deepseek": {
+      "models": {
+        "deepseek-v4-pro": {
+          "interleaved": {
+            "field": "reasoning_content"
+          }
+        }
+      }
+    }
+  }
+}

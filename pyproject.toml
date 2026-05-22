@@ -1,0 +1,63 @@
+[tool.poetry]
+name = "rag-agent"
+version = "0.1.0"
+description = "RAG Agent System with LightRAG, LangChain, FastAPI"
+authors = ["RAG Agent Team"]
+readme = "AGENTS.md"
+
+[tool.poetry.dependencies]
+python = ">=3.11,<3.13"
+fastapi = ">=0.115,<0.116"
+uvicorn = {extras = ["standard"], version = ">=0.31,<0.32"}
+sqlalchemy = {extras = ["asyncio"], version = ">=2.0,<2.1"}
+asyncpg = ">=0.30,<0.31"
+psycopg2-binary = ">=2.9,<2.10"
+alembic = ">=1.14,<1.15"
+lightrag-hku = ">=1.0,<2.0"
+langchain = ">=0.3,<0.4"
+langchain-openai = ">=0.2,<0.3"
+redis = ">=5.0,<6.0"
+docker = ">=7.0,<8.0"
+minio = ">=7.2,<7.3"
+pydantic-settings = ">=2.6,<2.7"
+structlog = ">=24.0,<25.0"
+prometheus-client = ">=0.21,<0.22"
+httpx = ">=0.28,<0.29"
+greenlet = "^3.5.1"
+python-multipart = ">=0.0.9"
+pypdf = "^6.12.1"
+
+[tool.poetry.group.dev.dependencies]
+ruff = ">=0.7,<0.8"
+mypy = ">=1.13,<1.14"
+pytest = ">=8.0,<9.0"
+pytest-asyncio = ">=0.24,<0.25"
+
+[tool.poetry.scripts]
+rag-agent = "rag_agent.main:app"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["rag_agent"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+warn_return_any = true
+warn_unused_ignores = true
+disallow_untyped_defs = true
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+addopts = "-v --tb=short"
